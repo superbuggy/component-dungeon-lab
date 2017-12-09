@@ -12,7 +12,6 @@ class Knob extends Component {
   }
 
   componentDidMount () {
-    console.log("mounted")
     window.addEventListener("mouseup", this.onMouseUp)
     window.addEventListener("mousemove", this.onMousedownMove)
   }
@@ -43,7 +42,7 @@ class Knob extends Component {
   }
 
   render () {
-    const center = 50
+    const center = 46 // width / 2 - markerBorderTotalPx
     const xDist = this.state.mouseX - center
     const yDist = this.state.mouseY - center
     const radians = Math.atan2(yDist, xDist)
