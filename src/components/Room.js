@@ -3,7 +3,7 @@ import React from 'react'
 export default props => {
   const size = 450
   const wallSize = 450 / 3.75
-  
+
   const roomStyle = {
     minHeight: `${size}px`,
     maxWidth: `${size}px`,

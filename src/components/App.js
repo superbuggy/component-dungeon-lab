@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import Knob from './Knob'
+import Wheel from './Wheel/Wheel'
 
 class App extends Component {
-  render() {
+  render () {
     return (
-      <Knob/>
-    );
+      <div>
+        <Wheel slices={5} />
+        <Knob />
+      </div>
+    )
   }
 }
 
-export default App;
+export default App

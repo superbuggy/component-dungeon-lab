@@ -12,14 +12,14 @@ class Knob extends Component {
   }
 
   componentDidMount () {
-    window.addEventListener("mouseup", this.onMouseUp)
-    window.addEventListener("mousemove", this.onMousedownMove)
+    window.addEventListener('mouseup', this.onMouseUp)
+    window.addEventListener('mousemove', this.onMousedownMove)
   }
 
   componentWillUnmount () {
-    console.log("unmounting")
-    window.removeEventListener("mouseup", this.onMouseUp)
-    window.removeEventListener("mousemove", this.onMousedownMove)
+    console.log('unmounting')
+    window.removeEventListener('mouseup', this.onMouseUp)
+    window.removeEventListener('mousemove', this.onMousedownMove)
   }
 
   onMouseUp = _ => {
@@ -46,11 +46,11 @@ class Knob extends Component {
     const xDist = this.state.mouseX - center
     const yDist = this.state.mouseY - center
     const radians = Math.atan2(yDist, xDist)
-    let degrees = parseInt(radians * (180/Math.PI))
+    let degrees = parseInt(radians * (180 / Math.PI))
     if (degrees < 0) degrees = 360 + degrees
     let dialDegrees = (degrees + 90) % 360
-    if (dialDegrees < 240 && dialDegrees > 180) dialDegrees = 240 
-    if (dialDegrees > 120 && dialDegrees <= 180) dialDegrees = 120 
+    if (dialDegrees < 240 && dialDegrees > 180) dialDegrees = 240
+    if (dialDegrees > 120 && dialDegrees <= 180) dialDegrees = 120
 
     const Marker = styled('div', {
       position: 'absolute',
@@ -79,7 +79,7 @@ class Knob extends Component {
           `${this.state.mouseX}, ${this.state.mouseY}, ${dialDegrees} ${degrees}`
         }
       </div>
-    ) 
+    )
   }
 }
 
