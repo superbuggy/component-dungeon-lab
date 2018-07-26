@@ -29,6 +29,12 @@ const Wheel = ({slices, ...props}) => {
       width={SVG_SIZE}
     >
       { wheelSections }
+      <circle
+        cx={0}
+        cy={0}
+        r={0.6}
+        fill={'white'}
+      />
     </svg>
   )
 }
