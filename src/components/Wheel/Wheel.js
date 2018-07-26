@@ -29,6 +29,7 @@ const Wheel = ({slices, ...props}) => {
       width={SVG_SIZE}
     >
       { wheelSections }
+      {/* TODO: Convert circle to mask? */}
       <circle
         cx={0}
         cy={0}
