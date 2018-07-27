@@ -1,7 +1,7 @@
 import React from 'react'
 import Key from './Key'
 
-const Octave = () => {
+const Octave = ({height}) => {
   const naturals = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
   const sharps = ['C#', 'D#', 'F#', 'G#', 'A#']
 
@@ -10,21 +10,13 @@ const Octave = () => {
       order={index}
       key={note}
       note={note}
-    />
-  ))
+      lit={false}
+    />))
 
-  const keys = [
-    ...drawKeys(naturals),
-    ...drawKeys(sharps)
-  ]
+  const keys = [...drawKeys(naturals), ...drawKeys(sharps)]
 
   return (
-
-    <svg
-      width='161'
-      height='120'
-      viewBox='0 0 161 120'
-    >
+    <svg height={height} viewBox='0 0 161 120'>
       {keys}
     </svg>
   )

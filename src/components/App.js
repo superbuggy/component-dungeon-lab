@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Knob from './Knob'
-import Octave from './Octave/Octave'
+import PianoKeyboard from './PianoKeyboard/PianoKeyboard'
 import Wheel from './Wheel/Wheel'
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
       <div>
         {/* <Wheel slices={5} /> */}
         {/* <Knob /> */}
-        <Octave />
+        <PianoKeyboard />
       </div>
     )
   }

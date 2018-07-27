@@ -1,7 +1,6 @@
-
 import React from 'react'
 
-const Key = ({order, note}) => {
+const Key = ({order, note, lit}) => {
   const xValues = {
     'C': 0,
     'C#': 14.33333,
@@ -19,14 +18,14 @@ const Key = ({order, note}) => {
 
   return note.includes('#')
     ? <rect
-      fill='black'
+      fill={lit ? 'red' : 'black'}
       stroke='black'
       x={xValues[note]}
       y='0'
       width='13'
       height='80' />
     : <rect
-      fill='white'
+      fill={lit ? 'red' : 'white'}
       stroke='black'
       x={xValues[note]}
       y='0'
