@@ -1,9 +1,10 @@
 import React from 'react'
 import Key from './Key'
 
-const Piano = () => {
+const Octave = () => {
   const naturals = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
   const sharps = ['C#', 'D#', 'F#', 'G#', 'A#']
+
   const drawKeys = notes => notes.map((note, index) => (
     <Key
       order={index}
@@ -11,14 +12,15 @@ const Piano = () => {
       note={note}
     />
   ))
+
   const keys = [
     ...drawKeys(naturals),
     ...drawKeys(sharps)
   ]
+
   return (
 
     <svg
-      // xmlSpace='preserve'
       width='161'
       height='120'
       viewBox='0 0 161 120'
@@ -28,9 +30,9 @@ const Piano = () => {
   )
 }
 
-export default Piano
+export default Octave
 
-// Based on https://commons.wikimedia.org/wiki/File:PianoKeyboard.svg
+// Based on https://commons.wikimedia.org/wiki/File:OctaveKeyboard.svg
 // License below...
 /*
      Copyright (c)  2005 Lauri Kaila.

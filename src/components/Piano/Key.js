@@ -17,24 +17,21 @@ const Key = ({order, note}) => {
     'B': 138
   }
 
-  const xValue = xValues[note]
-  const key = !note.includes('#')
+  return note.includes('#')
     ? <rect
-      fill='white'
-      stroke='black'
-      x={xValue}
-      y='0'
-      width='23'
-      height='120' />
-    : <rect
       fill='black'
       stroke='black'
-      x={xValue}
+      x={xValues[note]}
       y='0'
       width='13'
       height='80' />
-
-  return key
+    : <rect
+      fill='white'
+      stroke='black'
+      x={xValues[note]}
+      y='0'
+      width='23'
+      height='120' />
 }
 
 export default Key
