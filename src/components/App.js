@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Knob from './Knob'
-import Piano from './Piano'
+import Piano from './Piano/Piano'
 import Wheel from './Wheel/Wheel'
 
 class App extends Component {
