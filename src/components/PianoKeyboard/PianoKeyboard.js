@@ -87,7 +87,7 @@ export default class PianoKeyboard extends Component {
 
   render () {
     const octaves = [...Array(this.state.octaves).keys()].map(index => (
-      <Octave height={300} key={index} />
+      <Octave height={300} key={index} notesPlaying={this.state.notesPlaying} />
     ))
 
     return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import Key from './Key'
 
-const Octave = ({height}) => {
+const Octave = ({ height, notesPlaying }) => {
   const naturals = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
   const sharps = ['C#', 'D#', 'F#', 'G#', 'A#']
 
@@ -10,7 +10,7 @@ const Octave = ({height}) => {
       order={index}
       key={note}
       note={note}
-      lit={false}
+      lit={notesPlaying[note]}
     />))
 
   const keys = [...drawKeys(naturals), ...drawKeys(sharps)]
