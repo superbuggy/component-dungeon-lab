@@ -15,7 +15,7 @@ export const oneOctaveKeyLayout = {
 }
 
 export const twoOctaveKeyLayout = {
-  'Tab': 'C',
+  'tab': 'C',
   '1': 'C#',
   'q': 'D',
   '2': 'D#',
@@ -37,6 +37,6 @@ export const twoOctaveKeyLayout = {
   '[': 'G2',
   '=': 'G#2',
   ']': 'A2',
-  'Backspace': 'A#2',
+  'backspace': 'A#2',
   '\\': 'B2'
 }

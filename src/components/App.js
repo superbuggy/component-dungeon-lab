@@ -9,7 +9,7 @@ class App extends Component {
       <div>
         {/* <Wheel slices={5} /> */}
         {/* <Knob /> */}
-        <PianoKeyboard octaves={1} height={200} width={600} />
+        <PianoKeyboard octaves={2} height={200} width={800} />
       </div>
     )
   }

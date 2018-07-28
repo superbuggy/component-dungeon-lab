@@ -34,8 +34,7 @@ export default class PianoKeyboard extends Component {
 
   handlePressedKey = event => {
     const note = this.keyLayout[event.key.toLowerCase()]
-    console.log(event.key, note)
-    if (event.key === 'Tab' || event.key === 'Backspace') event.preventDefault() // may not work in other browsers?
+    if (event.key === 'Tab') event.preventDefault() // may not work in other browsers?
     if (note) {
       this.setState(prevState => ({
         notesPlaying: {
