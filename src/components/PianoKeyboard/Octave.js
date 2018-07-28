@@ -25,14 +25,15 @@ const Octave = ({ width, height, notesPlaying }) => {
       key={note}
       note={note}
       x={xValues[note]}
-      width={note.includes('#') ? 0.08075 * width : 0.14286 * width}
+      width={note.includes('#') ? width / 12 : width / 7}
+      height={height}
       lit={notesPlaying[note]}
     />))
 
   const keys = [...drawKeys(naturals), ...drawKeys(sharps)]
 
   return (
-    <svg height={height} viewBox={`0 0 ${width} 120`}>
+    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
       {keys}
     </svg>
   )
