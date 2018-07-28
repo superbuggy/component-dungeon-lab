@@ -1,0 +1,42 @@
+export const oneOctaveKeyLayout = {
+  'a': 'C',
+  'w': 'C#',
+  's': 'D',
+  'e': 'D#',
+  'd': 'E',
+  'f': 'F',
+  't': 'F#',
+  'g': 'G',
+  'y': 'G#',
+  'h': 'A',
+  'u': 'A#',
+  'j': 'B',
+  'shift': '+1 Octave'
+}
+
+export const twoOctaveKeyLayout = {
+  'Tab': 'C',
+  '1': 'C#',
+  'q': 'D',
+  '2': 'D#',
+  'w': 'E',
+  'e': 'F',
+  '4': 'F#',
+  'r': 'G',
+  '5': 'G#',
+  't': 'A',
+  '6': 'A#',
+  'y': 'B',
+  'u': 'C',
+  '8': 'C#',
+  'i': 'D',
+  '9': 'D#',
+  'o': 'E',
+  'p': 'F',
+  '-': 'F#',
+  '[': 'G',
+  '=': 'G#',
+  ']': 'A',
+  'Backspace': 'A#',
+  '\\': 'B'
+}
