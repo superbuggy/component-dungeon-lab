@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Key = ({order, note, lit, x, width, height}) => {
-  console.log(width)
   return note.includes('#')
     ? <rect
       fill={lit ? 'red' : 'black'}

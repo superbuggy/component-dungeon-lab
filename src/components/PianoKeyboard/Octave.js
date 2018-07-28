@@ -1,7 +1,7 @@
 import React from 'react'
 import Key from './Key'
 
-const Octave = ({ width, height, notesPlaying }) => {
+const Octave = ({ order, width, height, notesPlaying }) => {
   const xValues = {
     'C': width * 0,
     'C#': width * 0.08902689440993788,
@@ -16,6 +16,7 @@ const Octave = ({ width, height, notesPlaying }) => {
     'A#': width * 0.8369565217391305,
     'B': width * 0.8571428571428571
   }
+
   const naturals = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
   const sharps = ['C#', 'D#', 'F#', 'G#', 'A#']
 
@@ -23,11 +24,11 @@ const Octave = ({ width, height, notesPlaying }) => {
     <Key
       order={index}
       key={note}
-      note={note}
+      note={order === 1 ? note : `${note}2`}
       x={xValues[note]}
       width={note.includes('#') ? width / 12 : width / 7}
       height={height}
-      lit={notesPlaying[note]}
+      lit={notesPlaying[order === 1 ? note : `${note}2`]}
     />))
 
   const keys = [...drawKeys(naturals), ...drawKeys(sharps)]
