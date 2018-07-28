@@ -1,93 +1,59 @@
 import React, { Component } from 'react'
 import Octave from './Octave'
+import { oneOctaveKeyLayout, twoOctaveKeyLayout } from './KeyLayouts'
 
 export default class PianoKeyboard extends Component {
   constructor (props) {
     super(props)
+    const NOTE_NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+    this.keyLayout = props.octaves === 1 ? oneOctaveKeyLayout : twoOctaveKeyLayout
+    this.notes = props.otacves === 1
+      ? NOTE_NAMES
+      : [...NOTE_NAMES, ...NOTE_NAMES.map(note => `${note}2`)]
+    console.log(this.createNotesPlaying(props.octaves))
     this.state = {
-      octaves: 1,
-      activeOctave: null,
-      notesPlaying: {
-        'C': false,
-        'C#': false,
-        'D': false,
-        'D#': false,
-        'E': false,
-        'F': false,
-        'F#': false,
-        'G': false,
-        'G#': false,
-        'A': false,
-        'A#': false,
-        'B': false
-      }
+      notesPlaying: this.createNotesPlaying(props.octaves)
     }
   }
 
-  componentDidMount () {
-    window.addEventListener('keypress', this.handleKeyPress)
-    window.addEventListener('keyup', this.handleKeyUp)
+  createNotesPlaying = octaves => {
+    return this.notes.reduce((layout, note, index) => {
+      return Object.assign(layout, { [note]: false })
+    }, {})
   }
 
-  componentDidUnmount () {
-    window.removeEventListener('keypress', this.handleKeyPress)
-    window.removeEventListener('keyup', this.handleKeyUp)
+  componentDidMount = () => {
+    window.addEventListener('keydown', this.handlePressedKey)
+    window.addEventListener('keyup', this.handlePressedKey)
   }
 
-  handleKeyUp = event => {
-    console.log('up')
-    const notes = {
-      'a': 'C',
-      'w': 'C#',
-      's': 'D',
-      'e': 'D#',
-      'd': 'E',
-      'f': 'F',
-      't': 'F#',
-      'g': 'G',
-      'y': 'G#',
-      'h': 'A',
-      'u': 'A#',
-      'j': 'B'
-    }
-    if (notes[event.key]) {
+  componentWillUnmount = () => {
+    window.removeEventListener('keydown', this.handlePressedKey)
+    window.removeEventListener('keyup', this.handlePressedKey)
+  }
+
+  handlePressedKey = event => {
+    const note = this.keyLayout[event.key.toLowerCase()]
+    console.log(event.key, note)
+    if (event.key === 'Tab' || event.key === 'Backspace') event.preventDefault() // may not work in other browsers?
+    if (note) {
       this.setState(prevState => ({
         notesPlaying: {
           ...prevState.notesPlaying,
-          [notes[event.key]]: false
-        }
-      }))
-    }
-  }
-
-  handleKeyPress = event => {
-    const notes = {
-      'a': 'C',
-      'w': 'C#',
-      's': 'D',
-      'e': 'D#',
-      'd': 'E',
-      'f': 'F',
-      't': 'F#',
-      'g': 'G',
-      'y': 'G#',
-      'h': 'A',
-      'u': 'A#',
-      'j': 'B'
-    }
-    if (notes[event.key]) {
-      this.setState(prevState => ({
-        notesPlaying: {
-          ...prevState.notesPlaying,
-          [notes[event.key]]: true
+          [note]: event.type === 'keydown'
         }
       }))
     }
   }
 
   render () {
-    const octaves = [...Array(this.state.octaves).keys()].map(index => (
-      <Octave width={361} height={300} key={index} notesPlaying={this.state.notesPlaying} />
+    const octaves = [...Array(this.props.octaves).keys()].map(index => (
+      <Octave
+        width={this.props.width / this.props.octaves}
+        height={this.props.height}
+        order={index + 1}
+        key={index}
+        notesPlaying={this.state.notesPlaying} />
     ))
 
     return (
