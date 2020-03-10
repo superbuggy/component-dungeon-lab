@@ -7,8 +7,8 @@ class App extends Component {
   render () {
     return (
       <div>
-        {/* <Wheel slices={5} /> */}
-        {/* <Knob /> */}
+        <Wheel slices={5} />
+        <Knob />
         <PianoKeyboard octaves={2} height={200} width={800} />
       </div>
     )

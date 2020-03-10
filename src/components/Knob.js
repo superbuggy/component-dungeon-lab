@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { styled } from 'styletron-react'
 
 class Knob extends Component {
   constructor (props) {
@@ -17,7 +16,6 @@ class Knob extends Component {
   }
 
   componentWillUnmount () {
-    console.log('unmounting')
     window.removeEventListener('mouseup', this.onMouseUp)
     window.removeEventListener('mousemove', this.onMousedownMove)
   }
@@ -52,31 +50,31 @@ class Knob extends Component {
     if (dialDegrees < 240 && dialDegrees > 180) dialDegrees = 240
     if (dialDegrees > 120 && dialDegrees <= 180) dialDegrees = 120
 
-    const Marker = styled('div', {
+    const markerStyle = {
       position: 'absolute',
       minHeight: '10px',
       maxWidth: '0px',
       left: `${center}px`,
       border: '2px solid black',
       boxSizing: 'border-box'
-    })
+    }
 
-    const Dial = styled('div', {
+    const dialStyle = {
       boxSizing: 'border-box',
       minHeight: '100px',
       maxWidth: '100px',
       border: '2px solid black',
       borderRadius: '50%',
       transform: `rotate(${dialDegrees}deg)`
-    })
+    }
 
     return (
       <div>
-        <Dial onMouseDown={this.onMouseDown}>
-          <Marker />
-        </Dial>
+        <div style={dialStyle} onMouseDown={this.onMouseDown}>
+          <div style={markerStyle}/>
+        </div>
         {
-          `${this.state.mouseX}, ${this.state.mouseY}, ${dialDegrees} ${degrees}`
+          `X ${this.state.mouseX}, Y ${this.state.mouseY}, ${dialDegrees}º ${degrees}°`
         }
       </div>
     )
